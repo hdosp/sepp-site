@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>{% block title %}Сайт Sepp{% endblock %}</title>
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	</head>
+	<body>
+
+		<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  			<h5 class="my-0 mr-md-auto font-weight-normal">Sepp</h5>
+  			<nav class="my-2 my-md-0 mr-md-3">
+    			<a class="p-2 text-dark" href="/articles">Статьи</a>
+  			</nav>
+  			<a class="btn btn-outline-primary" href="/">Главная</a>
+		</div>
+
+		
+		{% block content %}{% endblock %}
+
+
+		<footer class="pt-4 my-md-5 pt-md-5 border-top container">
+    		<div class="row">
+      			<div class="col-12 col-md">
+        			<H5 class="d-block mb-3">Sepp ©</H5>
+        			<small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+      			</div>
+      			<div class="col-6 col-md">
+        			<h5>Статьи</h5>
+        			<ul class="list-unstyled text-small">
+          				<li><a class="text-muted" href="#">Cool stuff</a></li>
+        			</ul>
+    		</div>
+  		</footer>
+	</body>
+</html>
