@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}Последние статьи{% endblock %}
+
+{% block content %}
+	<H3 class="container mt-5">
+		{% if latest_articles_list %}
+
+			{% for a in latest_articles_list %}
+				<a href="{% url 'articles:detail' a.id %}">{{a.article_title}} - {{a.article_short}} <div class="text-muted">{{c.comment_pub}}</a>
+			{% endfor %}
+
+		{% else %}
+
+			Статьи не найдены =(
+
+		{% endif %}
+	</H3>
+{% endblock %}
