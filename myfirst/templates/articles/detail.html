@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}{{article.article_title}}{% endblock %}
+
+{% block content %}
+
+	<H2 class="container mt-5">{{article.article_title}} {% if article.was_pub_recently %}<font size="4" color="red">(new!)</font>{% endif %}</H2>
+
+
+	<P class="container mt-5">{{article.article_text}}</P>
+
+
+	<hr class="container">
+	<h5 align="right" class="container">{{article.pub_date}}</h5>
+
+
+
+	<form action="{% url 'articles:leave_comment' article.id %}" method="POST" class="container mt-5">
+		
+		{% csrf_token %}
+
+		<input type="text" required placeholder="Ваше имя" name="name" class="form-control"><br>
+		<textarea name="text" required="" placeholder="Текст комментария" class="form-control"></textarea><br>
+		<button type="submit" class="btn btn-success">Оставить комментарий</button>
+		
+
+	</form>
+
+		<hr class="container">
+
+		<a class="container">
+			{% if latest_comments_list %}
+				<H4 class="container">Комментарии</H4><br>
+				{% for c in latest_comments_list %}
+				<p class="container">
+					<strong>{{c.author_name}}</strong>
+					<p class="container">{{c.comment_text}}</p>
+				</p>
+				<br>
+				<hr class="container">
+			{% endfor %}
+			{% else %}
+				Комментарии не найдены! Станьте первым!
+			{% endif %}
+		</a>
+
+{% endblock %}
